@@ -29,4 +29,7 @@
     <string name="welcome_login">Login</string>
     <string name="welcome_register">Criar Conta</string>
     <string name="copyright">© TáNaMão 2023</string>
+    <string name="login_description">Seja bem-vindo de volta ao seu app de doações!</string>
+    <string name="login_entrar">Entrar</string>
+    <string name="login_google">Continuar com o Google</string>
 </resources>
