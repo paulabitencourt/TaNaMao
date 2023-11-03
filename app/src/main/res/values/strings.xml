@@ -35,4 +35,11 @@
     <string name="login_register">Criar nova conta</string>
     <string name="register_description">Em alguns instantes você iniciará a sua experiência com o TáNaMão!</string>
     <string name="register_btn">Criar</string>
+    <string name="item_date_post">Postado há x dias</string>
+    <string name="item_type">Móveis</string>
+    <string name="item_name">Nome do produto</string>
+    <string name="item_features">Especificações</string>
+    <string name="item_btn">Quero!</string>
+    <string name="item_donated">Doado por</string>
+    <string name="item_liear_state">Condição</string>
 </resources>
