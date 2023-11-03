@@ -40,6 +40,6 @@
     <string name="item_name">Nome do produto</string>
     <string name="item_features">Especificações</string>
     <string name="item_btn">Quero!</string>
-    <string name="item_donated">Doado por</string>
+    <string name="item_donated">Doado por Lais</string>
     <string name="item_liear_state">Condição</string>
 </resources>
