@@ -57,6 +57,8 @@ class HomeActivity : AppCompatActivity() {
 
         actionBar?.hide()
 
+
+
         with(binding) {
             recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
             recyclerView.adapter = photoAdapter
