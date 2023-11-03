@@ -40,17 +40,21 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.forgotTv.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         binding.loginBtn.setOnClickListener {
-//            val user = UserLogin(
-//                email = binding.emailEt.text.toString().trim(),
-//                password = binding.passwordEt.text.toString().trim()
-//            )
-//            validateData(user = user)
+            val user = UserLogin(
+                email = binding.emailEt.text.toString().trim(),
+                password = binding.passwordEt.text.toString().trim()
+            )
+            validateData(user = user)
             startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        binding.loginRegisterBtn.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 
