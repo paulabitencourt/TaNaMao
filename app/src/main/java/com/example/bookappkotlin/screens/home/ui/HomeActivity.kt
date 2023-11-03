@@ -1,28 +1,23 @@
 package com.example.bookappkotlin.screens.home.ui
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookappkotlin.R
 import com.example.bookappkotlin.databinding.ActivityHomeBinding
 import com.example.bookappkotlin.repositories.database.ViewModelUser
-import com.example.bookappkotlin.screens.home.adapters.PhotoAdapter
-import com.example.bookappkotlin.screens.home.viewmodel.ViewModelHome
-import com.example.bookappkotlin.screens.login.ui.LoginActivity
-import com.example.bookappkotlin.screens.profile.ui.ProfileActivity
+import com.example.bookappkotlin.repositories.network.api.model.Meme
+import com.example.bookappkotlin.screens.home.ui.adapters.PhotoAdapter
+import com.example.bookappkotlin.screens.home.viewmodel.HomeViewModel
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var toggle: ActionBarDrawerToggle
 
 //    private val recyclerView: RecyclerView by lazy {
 //        findViewById(R.id.recyclerView)
@@ -32,14 +27,24 @@ class HomeActivity : AppCompatActivity() {
         parametersOf(applicationContext)
     }
 
-    private val viewModelHome by inject<ViewModelHome>() {
-        parametersOf(this)
-    }
+    private val viewModelHome by inject<HomeViewModel>()
 
     private val viewModelUser by inject<ViewModelUser>() {
         parametersOf(this)
     }
 
+
+    // Mock data class with sample data for MemeValue
+    val test = listOf<Meme>(
+        Meme(1, 100, "1", "Cama de casal", "https://picsum.photos/300/300", 150),
+        Meme(2, 120, "2", "Cama de casal", "https://picsum.photos/300/300", 180),
+        Meme(3, 120, "3", "Cama de casal", "https://picsum.photos/300/300", 180),
+        Meme(4, 120, "4", "Cama de casal", "https://picsum.photos/300/300", 180),
+        Meme(3, 120, "3", "Cama de casal", "https://picsum.photos/300/300", 180),
+        Meme(4, 120, "4", "Cama de casal", "https://picsum.photos/300/300", 180),
+
+        // Add more sample memes if needed
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,63 +55,21 @@ class HomeActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        toggle = ActionBarDrawerToggle(this, binding.drawerLayoutOne, R.string.open, R.string.close)
-        binding.drawerLayoutOne.addDrawerListener(toggle)
-        toggle.syncState()
+        actionBar?.hide()
 
-//        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
-//        recyclerView.adapter = photoAdapter
-
-        //listMemeAtPhotoAdapter()
-        //navigationViewListener()
-    }
-
-//    private fun navigationViewListener() {
-//        binding.navigationView.setNavigationItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.item_1 -> startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
-//                R.id.item_2 -> Toast.makeText(
-//                    applicationContext,
-//                    "Clicked item 2", Toast.LENGTH_LONG
-//                ).show()
-//                R.id.item_3 -> {
-//                    viewModelHome.signOutUser()
-//                    viewModelUser.deleteAllUsersData()
-//                    startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
-//                }
-//            }
-//            true
-//        }
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        binding.navigationView.bringToFront()
-//    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)) {
-            return true
+        with(binding) {
+            recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+            recyclerView.adapter = photoAdapter
+            recyclerView3.layoutManager = GridLayoutManager(applicationContext, 2)
+            recyclerView3.adapter = photoAdapter
         }
-        return super.onOptionsItemSelected(item)
+        listMemeAtPhotoAdapter()
     }
 
-    //@SuppressLint("NotifyDataSetChanged", "SetTextI18n")
-//    private fun listMemeAtPhotoAdapter() {
-//        viewModelHome.getAllMemes()
-//
-//        viewModelHome.errorMemeResponseLiveData.observe(this) { resultBoolean ->
-//            if (resultBoolean) {
-//                binding.textView4.text =
-//                    "Unfortunately, our service is out right now, try later soon!"
-//            } else {
-//                viewModelHome.listMemeResponseLiveData.observe(this) { memeList ->
-//                    if (memeList.isNotEmpty()) {
-//                        photoAdapter.setDataList(memeList)
-//                        photoAdapter.notifyDataSetChanged()
-//                    } else {
-//                        binding.textView4.text =
-//                            "Unfortunately, our list of memes are empty right now, try later soon!"
-//                    }
-//                }
-//            }
-//        }
-//    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun listMemeAtPhotoAdapter() {
+        photoAdapter.setDataList(test)
+        photoAdapter.notifyDataSetChanged()
+    }
 }

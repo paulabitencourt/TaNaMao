@@ -45,11 +45,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginBtn.setOnClickListener {
-            val user = UserLogin(
-                email = binding.emailEt.text.toString().trim(),
-                password = binding.passwordEt.text.toString().trim()
-            )
-            validateData(user = user)
+//            val user = UserLogin(
+//                email = binding.emailEt.text.toString().trim(),
+//                password = binding.passwordEt.text.toString().trim()
+//            )
+//            validateData(user = user)
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         binding.loginRegisterBtn.setOnClickListener{
