@@ -34,7 +34,7 @@ class PhotoAdapter(var context: Context) : RecyclerView.Adapter<PhotoAdapter.Vie
 
         holder.title.text = data.name
 
-        holder.image.setImageResource(R.drawable.download)
+        holder.image.setImageResource(R.drawable.cama)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
