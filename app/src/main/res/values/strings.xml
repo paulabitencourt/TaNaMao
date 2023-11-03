@@ -32,4 +32,7 @@
     <string name="login_description">Seja bem-vindo de volta ao seu app de doações!</string>
     <string name="login_entrar">Entrar</string>
     <string name="login_google">Continuar com o Google</string>
+    <string name="login_register">Criar nova conta</string>
+    <string name="register_description">Em alguns instantes você iniciará a sua experiência com o TáNaMão!</string>
+    <string name="register_btn">Criar</string>
 </resources>

@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.forgotTv.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
@@ -51,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
 //            )
 //            validateData(user = user)
             startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        binding.loginRegisterBtn.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 

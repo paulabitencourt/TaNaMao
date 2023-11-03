@@ -19,9 +19,9 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
-    private val recyclerView: RecyclerView by lazy {
-        findViewById(R.id.recyclerView)
-    }
+//    private val recyclerView: RecyclerView by lazy {
+//        findViewById(R.id.recyclerView)
+//    }
 
     private val photoAdapter by inject<PhotoAdapter> {
         parametersOf(applicationContext)
