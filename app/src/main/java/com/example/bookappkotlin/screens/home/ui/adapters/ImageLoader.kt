@@ -1,4 +1,4 @@
-package com.example.bookappkotlin.screens.home.adapters
+package com.example.bookappkotlin.screens.home.ui.adapters
 
 import android.content.Context
 import android.widget.ImageView

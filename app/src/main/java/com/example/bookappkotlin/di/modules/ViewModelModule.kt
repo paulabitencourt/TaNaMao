@@ -13,6 +13,7 @@ import com.example.bookappkotlin.screens.register.viewmodel.RegisterViewModel
 import com.example.bookappkotlin.screens.register.viewmodel.ViewModelRegister
 import com.example.bookappkotlin.screens.splash.viewmodel.SplashViewModel
 import com.example.bookappkotlin.screens.splash.viewmodel.ViewModelSplash
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module{
@@ -29,10 +30,8 @@ val viewModelModule = module{
         loginViewModel
     }
 
-    single<ViewModelHome>{
-        lateinit var homeViewModel: ViewModelHome
-        homeViewModel = ViewModelProvider(get())[HomeViewModel::class.java]
-        homeViewModel
+    viewModel {
+        HomeViewModel()
     }
 
     single<ViewModelRegister>{

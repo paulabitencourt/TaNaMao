@@ -1,8 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayoutOne"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".screens.home.ui.HomeActivity"/>
+    tools:context=".screens.home.ui.HomeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_green_rectangle"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/titleAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titleLocation" />
+
+        <TextView
+            android:id="@+id/titleLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Localização atual"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Avenida Cardeal da Silva"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleLocation" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    app:layout_constraintTop_toBottomOf="@id/header"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Destaque do dia"
+        android:paddingVertical="15dp"
+        android:textSize="22dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/titleHighlights"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="#072D24"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@id/titleHighlights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:scrollbars="horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Categorias"
+        android:paddingVertical="15dp"
+        android:textSize="22dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        android:id="@+id/titleCategories"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="#072D24"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        app:layout_constraintTop_toBottomOf="@id/titleCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:scrollbars="horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Publicações recentes"
+        android:paddingVertical="15dp"
+        android:textSize="22dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView2"
+        android:id="@+id/titlePublications"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="#072D24"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView3"
+        app:layout_constraintTop_toBottomOf="@id/titlePublications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"  />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

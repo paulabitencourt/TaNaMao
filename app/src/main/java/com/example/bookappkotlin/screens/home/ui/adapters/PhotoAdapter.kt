@@ -1,4 +1,4 @@
-package com.example.bookappkotlin.screens.home.adapters
+package com.example.bookappkotlin.screens.home.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -34,7 +34,7 @@ class PhotoAdapter(var context: Context) : RecyclerView.Adapter<PhotoAdapter.Vie
 
         holder.title.text = data.name
 
-        glide.loaderImage(context = context, imageData = data.url, holderImage = holder.image)
+        holder.image.setImageResource(R.drawable.download)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
