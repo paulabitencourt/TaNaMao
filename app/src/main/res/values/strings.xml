@@ -24,4 +24,12 @@
     <string name="profile_image">Profile Image</string>
     <string name="username">username</string>
     <string name="edit_button">Edit button</string>
+    <string name="welcome">Bem-Vindo!</string>
+    <string name="welcome_description">TáNaMão!\nSua doação direta está a um toque de distância para transformar vidas.</string>
+    <string name="welcome_login">Login</string>
+    <string name="welcome_register">Criar Conta</string>
+    <string name="copyright">© TáNaMão 2023</string>
+    <string name="login_description">Seja bem-vindo de volta ao seu app de doações!</string>
+    <string name="login_entrar">Entrar</string>
+    <string name="login_google">Continuar com o Google</string>
 </resources>
