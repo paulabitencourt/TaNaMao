@@ -24,9 +24,9 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var toggle: ActionBarDrawerToggle
 
-    private val recyclerView: RecyclerView by lazy {
-        findViewById(R.id.recyclerView)
-    }
+//    private val recyclerView: RecyclerView by lazy {
+//        findViewById(R.id.recyclerView)
+//    }
 
     private val photoAdapter by inject<PhotoAdapter> {
         parametersOf(applicationContext)
@@ -54,32 +54,32 @@ class HomeActivity : AppCompatActivity() {
         binding.drawerLayoutOne.addDrawerListener(toggle)
         toggle.syncState()
 
-        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
-        recyclerView.adapter = photoAdapter
+//        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
+//        recyclerView.adapter = photoAdapter
 
-        listMemeAtPhotoAdapter()
-        navigationViewListener()
+        //listMemeAtPhotoAdapter()
+        //navigationViewListener()
     }
 
-    private fun navigationViewListener() {
-        binding.navigationView.setNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_1 -> startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
-                R.id.item_2 -> Toast.makeText(
-                    applicationContext,
-                    "Clicked item 2", Toast.LENGTH_LONG
-                ).show()
-                R.id.item_3 -> {
-                    viewModelHome.signOutUser()
-                    viewModelUser.deleteAllUsersData()
-                    startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
-                }
-            }
-            true
-        }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.navigationView.bringToFront()
-    }
+//    private fun navigationViewListener() {
+//        binding.navigationView.setNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.item_1 -> startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
+//                R.id.item_2 -> Toast.makeText(
+//                    applicationContext,
+//                    "Clicked item 2", Toast.LENGTH_LONG
+//                ).show()
+//                R.id.item_3 -> {
+//                    viewModelHome.signOutUser()
+//                    viewModelUser.deleteAllUsersData()
+//                    startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+//                }
+//            }
+//            true
+//        }
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        binding.navigationView.bringToFront()
+//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
@@ -88,25 +88,25 @@ class HomeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
-    private fun listMemeAtPhotoAdapter() {
-        viewModelHome.getAllMemes()
-
-        viewModelHome.errorMemeResponseLiveData.observe(this) { resultBoolean ->
-            if (resultBoolean) {
-                binding.textView4.text =
-                    "Unfortunately, our service is out right now, try later soon!"
-            } else {
-                viewModelHome.listMemeResponseLiveData.observe(this) { memeList ->
-                    if (memeList.isNotEmpty()) {
-                        photoAdapter.setDataList(memeList)
-                        photoAdapter.notifyDataSetChanged()
-                    } else {
-                        binding.textView4.text =
-                            "Unfortunately, our list of memes are empty right now, try later soon!"
-                    }
-                }
-            }
-        }
-    }
+    //@SuppressLint("NotifyDataSetChanged", "SetTextI18n")
+//    private fun listMemeAtPhotoAdapter() {
+//        viewModelHome.getAllMemes()
+//
+//        viewModelHome.errorMemeResponseLiveData.observe(this) { resultBoolean ->
+//            if (resultBoolean) {
+//                binding.textView4.text =
+//                    "Unfortunately, our service is out right now, try later soon!"
+//            } else {
+//                viewModelHome.listMemeResponseLiveData.observe(this) { memeList ->
+//                    if (memeList.isNotEmpty()) {
+//                        photoAdapter.setDataList(memeList)
+//                        photoAdapter.notifyDataSetChanged()
+//                    } else {
+//                        binding.textView4.text =
+//                            "Unfortunately, our list of memes are empty right now, try later soon!"
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

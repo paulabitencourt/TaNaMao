@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.noAccountTv.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
@@ -50,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
                 password = binding.passwordEt.text.toString().trim()
             )
             validateData(user = user)
+        }
+
+        binding.loginRegisterBtn.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 
